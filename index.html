@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +8,9 @@
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -19,186 +18,128 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b0d12;
-            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #222;
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* NAVBAR */
-
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            padding: 0 8%;
-
-            background: rgba(11, 13, 18, 0.9);
-            border-bottom: 1px solid #22252d;
-
-            z-index: 100;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
-        }
-
-        .logo span {
-            color: #b9a7ff;
+            color: #222;
         }
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 25px;
         }
 
         .nav-links a {
-            color: #aaa;
-            font-size: 14px;
-            transition: 0.3s;
+            color: #444;
+            text-decoration: none;
+            font-size: 15px;
         }
 
         .nav-links a:hover {
-            color: #b9a7ff;
+            color: #2563eb;
         }
 
-        /* HERO */
-
         .hero {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-
-            padding: 120px 8% 80px;
-
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(130, 100, 255, 0.16),
-                    transparent 35%
-                );
+            background-color: #f5f7fa;
+            padding: 100px 8%;
         }
 
         .hero-content {
-            max-width: 850px;
-        }
-
-        .small-text {
-            color: #b9a7ff;
-            letter-spacing: 4px;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 20px;
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: clamp(55px, 9vw, 100px);
-            line-height: 0.95;
-            letter-spacing: -5px;
-            margin-bottom: 25px;
+            font-size: 52px;
+            margin-bottom: 10px;
         }
 
         .hero h1 span {
-            color: #b9a7ff;
+            color: #2563eb;
         }
 
         .hero h2 {
-            color: #b8bac2;
-            font-size: 24px;
+            font-size: 23px;
             font-weight: normal;
+            color: #555;
             margin-bottom: 20px;
         }
 
         .hero p {
-            color: #888b95;
             max-width: 650px;
+            color: #555;
             font-size: 17px;
         }
 
         .buttons {
-            margin-top: 35px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            margin-top: 25px;
         }
 
         .button {
-            padding: 13px 22px;
-            border-radius: 8px;
-            transition: 0.3s;
+            display: inline-block;
+            padding: 10px 18px;
+            margin-right: 10px;
+            text-decoration: none;
+            border: 1px solid #2563eb;
+            border-radius: 4px;
             font-size: 14px;
         }
 
         .button-primary {
-            background: white;
-            color: #0b0d12;
+            background-color: #2563eb;
+            color: white;
         }
 
         .button-secondary {
-            border: 1px solid #383b45;
-            color: #ddd;
+            color: #2563eb;
+            background-color: white;
         }
-
-        .button:hover {
-            transform: translateY(-3px);
-        }
-
-        /* COMMON */
 
         .section {
-            max-width: 1150px;
+            max-width: 1100px;
             margin: auto;
-            padding: 100px 8%;
-        }
-
-        .section-number {
-            color: #b9a7ff;
-            font-size: 12px;
-            letter-spacing: 3px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            padding: 70px 8%;
         }
 
         .section h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
         }
 
         .section-description {
-            color: #858891;
+            color: #666;
+            margin-bottom: 30px;
             max-width: 700px;
-            margin-bottom: 40px;
         }
 
-        /* ABOUT */
-
-        .about-card {
-            background: #11141b;
-            border: 1px solid #242731;
-            border-radius: 18px;
-            padding: 35px;
+        .about-text {
+            color: #555;
+            max-width: 850px;
         }
-
-        .about-card p {
-            color: #9a9da6;
-            font-size: 16px;
-        }
-
-        /* SKILLS */
 
         .skills-grid {
             display: grid;
@@ -206,30 +147,21 @@
             gap: 15px;
         }
 
-        .skill-card {
-            background: #11141b;
-            border: 1px solid #242731;
-            border-radius: 14px;
-            padding: 24px;
-            transition: 0.3s;
+        .skill {
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #fafafa;
         }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
-            border-color: #63558e;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 6px;
+        .skill h3 {
             font-size: 17px;
+            margin-bottom: 5px;
         }
 
-        .skill-card p {
-            color: #777b86;
-            font-size: 13px;
+        .skill p {
+            color: #666;
+            font-size: 14px;
         }
-
-        /* PROJECTS */
 
         .projects-grid {
             display: grid;
@@ -237,93 +169,53 @@
             gap: 20px;
         }
 
-        .project-card {
-            background: #11141b;
-            border: 1px solid #242731;
-            border-radius: 18px;
-            padding: 30px;
-            min-height: 270px;
-
-            display: flex;
-            flex-direction: column;
-
-            transition: 0.3s;
+        .project {
+            border: 1px solid #ddd;
+            padding: 25px;
+            background-color: #fff;
         }
 
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: #63558e;
+        .project h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
-        .project-number {
-            color: #666a75;
-            font-size: 11px;
-            letter-spacing: 2px;
-            margin-bottom: 22px;
-        }
-
-        .project-card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-
-        .project-card p {
-            color: #858891;
+        .project p {
+            color: #666;
             font-size: 14px;
-        }
-
-        .tags {
-            margin-top: auto;
-            padding-top: 25px;
-
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+            margin-bottom: 15px;
         }
 
         .tag {
-            background: #1a1d25;
-            color: #aaa;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 11px;
+            display: inline-block;
+            background-color: #eef2ff;
+            color: #2563eb;
+            padding: 4px 9px;
+            margin-right: 5px;
+            margin-top: 5px;
+            font-size: 12px;
         }
 
-        /* EDUCATION */
-
-        .education-list {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
+        .education {
+            border-left: 3px solid #2563eb;
+            padding-left: 20px;
+            margin-bottom: 25px;
         }
 
-        .education-card {
-            background: #11141b;
-            border: 1px solid #242731;
-            border-radius: 15px;
-            padding: 25px;
-
-            display: grid;
-            grid-template-columns: 130px 1fr;
-            gap: 25px;
-        }
-
-        .year {
-            color: #b9a7ff;
-            font-size: 14px;
+        .education .year {
+            color: #2563eb;
             font-weight: bold;
-        }
-
-        .education-card h3 {
-            margin-bottom: 5px;
-        }
-
-        .education-card p {
-            color: #80838d;
             font-size: 14px;
         }
 
-        /* ACTIVITIES */
+        .education h3 {
+            margin: 5px 0;
+        }
+
+        .education p {
+            color: #666;
+            font-size: 14px;
+        }
 
         .activity-grid {
             display: grid;
@@ -331,289 +223,204 @@
             gap: 20px;
         }
 
-        .activity-card {
-            background: #11141b;
-            border: 1px solid #242731;
-            border-radius: 16px;
-            padding: 28px;
+        .activity {
+            border: 1px solid #ddd;
+            padding: 25px;
         }
 
-        .activity-icon {
-            font-size: 26px;
-            margin-bottom: 15px;
-        }
-
-        .activity-card h3 {
+        .activity h3 {
             margin-bottom: 8px;
         }
 
-        .activity-card p {
-            color: #858891;
+        .activity p {
+            color: #666;
             font-size: 14px;
         }
 
-        /* CONTACT */
-
         .contact {
+            background-color: #f5f7fa;
+            max-width: none;
             text-align: center;
         }
 
-        .contact .section-description {
-            margin-left: auto;
-            margin-right: auto;
+        .contact p {
+            color: #666;
+            margin-bottom: 25px;
         }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+        .contact a {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 18px;
+            border: 1px solid #2563eb;
+            color: #2563eb;
+            text-decoration: none;
+            border-radius: 4px;
         }
 
-        .contact-link {
-            padding: 13px 20px;
-            border: 1px solid #292c35;
-            border-radius: 8px;
-            color: #bbb;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .contact-link:hover {
+        .contact a:hover {
+            background-color: #2563eb;
             color: white;
-            border-color: #b9a7ff;
-            transform: translateY(-3px);
         }
-
-        /* FOOTER */
 
         footer {
             text-align: center;
-            padding: 30px;
-            border-top: 1px solid #22252d;
-            color: #666;
-            font-size: 12px;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 13px;
         }
 
-        /* MOBILE */
+        @media (max-width: 700px) {
 
-        @media (max-width: 800px) {
+            nav {
+                padding: 15px 5%;
+            }
 
             .nav-links {
                 display: none;
             }
 
             .hero {
-                padding: 120px 7% 80px;
+                padding: 70px 7%;
             }
 
             .hero h1 {
-                font-size: 58px;
-                letter-spacing: -3px;
-            }
-
-            .section {
-                padding: 80px 7%;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .activity-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .hero h1 {
-                font-size: 48px;
+                font-size: 40px;
             }
 
             .hero h2 {
                 font-size: 20px;
             }
 
-            .section h2 {
-                font-size: 34px;
+            .section {
+                padding: 55px 7%;
             }
 
-            .skills-grid {
+            .skills-grid,
+            .projects-grid,
+            .activity-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .education-card {
-                grid-template-columns: 1fr;
-                gap: 8px;
             }
         }
     </style>
 </head>
 
-
 <body>
 
-    <!-- NAVIGATION -->
-
     <nav>
-
-        <a href="#home" class="logo">
-            Prarthana<span>.</span>
-        </a>
+        <a href="#home" class="logo">Prarthana Gupta</a>
 
         <div class="nav-links">
-
             <a href="#about">About</a>
-
             <a href="#skills">Skills</a>
-
             <a href="#projects">Projects</a>
-
             <a href="#education">Education</a>
-
             <a href="#contact">Contact</a>
-
         </div>
-
     </nav>
 
 
-    <!-- HERO -->
-
     <section class="hero" id="home">
-
         <div class="hero-content">
 
-            <div class="small-text">
-                HELLO, I'M
-            </div>
+            <h1>Hello, I'm <span>Prarthana</span></h1>
 
-            <h1>
-                Prarthana <span>Gupta.</span>
-            </h1>
-
-            <h2>
-                Computer Engineering Student
-            </h2>
+            <h2>Computer Engineering Student</h2>
 
             <p>
-                I am passionate about programming, web development
-                and learning new technologies. I enjoy building
-                practical projects and turning ideas into simple,
-                useful solutions.
+                I am a second-year Computer Engineering student
+                interested in programming, web development and
+                learning new technologies. I enjoy creating small
+                projects and improving my programming skills.
             </p>
 
             <div class="buttons">
-
                 <a href="#projects" class="button button-primary">
-                    View My Projects →
+                    View Projects
                 </a>
 
                 <a href="#contact" class="button button-secondary">
                     Contact Me
                 </a>
-
             </div>
 
         </div>
-
     </section>
 
-
-    <!-- ABOUT -->
 
     <section class="section" id="about">
 
-        <div class="section-number">
-            01 — ABOUT
-        </div>
+        <p class="section-title">ABOUT ME</p>
 
-        <h2>
-            A little about me.
-        </h2>
+        <h2>A little about me</h2>
 
-        <div class="about-card">
-
-            <p>
-                I am a second-year Computer Engineering student
-                with an interest in programming, web development
-                and problem-solving. I enjoy learning through
-                practical projects and experimenting with new
-                technologies. My goal is to continuously improve
-                my technical skills and create projects that are
-                useful, creative and meaningful.
-            </p>
-
-        </div>
+        <p class="about-text">
+            I am a second-year Computer Engineering student with
+            an interest in programming, web development and
+            problem-solving. I like learning through practical
+            projects and trying out new technologies. I am
+            currently working on improving my technical and
+            programming skills.
+        </p>
 
     </section>
 
 
-    <!-- SKILLS -->
-
     <section class="section" id="skills">
 
-        <div class="section-number">
-            02 — SKILLS
-        </div>
+        <p class="section-title">SKILLS</p>
 
-        <h2>
-            What I work with.
-        </h2>
+        <h2>My Skills</h2>
 
         <p class="section-description">
-            Some of the programming languages, technologies and
-            concepts I am currently learning and working with.
+            Technologies and concepts that I have learned or
+            am currently learning.
         </p>
 
         <div class="skills-grid">
 
-            <div class="skill-card">
+            <div class="skill">
                 <h3>C Programming</h3>
                 <p>Programming fundamentals and logic</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill">
                 <h3>Python</h3>
-                <p>Programming and project development</p>
+                <p>Basic programming and projects</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill">
                 <h3>HTML</h3>
                 <p>Web page structure</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill">
                 <h3>CSS</h3>
-                <p>Responsive web design</p>
+                <p>Basic web design</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill">
                 <h3>SQL</h3>
                 <p>Database fundamentals</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill">
                 <h3>Data Structures</h3>
-                <p>Problem-solving concepts</p>
+                <p>Basic data structure concepts</p>
             </div>
 
-            <div class="skill-card">
-                <h3>Web Development</h3>
-                <p>Building responsive websites</p>
-            </div>
-
-            <div class="skill-card">
+            <div class="skill">
                 <h3>Git & GitHub</h3>
-                <p>Version control and projects</p>
+                <p>Managing and sharing projects</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill">
+                <h3>Web Development</h3>
+                <p>Creating simple websites</p>
+            </div>
+
+            <div class="skill">
                 <h3>Problem Solving</h3>
                 <p>Logical thinking and programming</p>
             </div>
@@ -623,146 +430,77 @@
     </section>
 
 
-    <!-- PROJECTS -->
-
     <section class="section" id="projects">
 
-        <div class="section-number">
-            03 — PROJECTS
-        </div>
+        <p class="section-title">PROJECTS</p>
 
-        <h2>
-            Things I've built.
-        </h2>
+        <h2>My Projects</h2>
 
         <p class="section-description">
-            A few programming and web-development projects
-            created while learning and experimenting with technology.
+            Some of the projects I have worked on while learning
+            programming and web development.
         </p>
 
         <div class="projects-grid">
 
+            <div class="project">
 
-            <!-- PROJECT 1 -->
-
-            <div class="project-card">
-
-                <div class="project-number">
-                    PROJECT 01
-                </div>
-
-                <h3>
-                    Rock Paper Scissors
-                </h3>
+                <h3>Rock Paper Scissors</h3>
 
                 <p>
-                    An interactive Python game where the user plays
-                    against the computer. It includes random computer
-                    choices, user input, game rules and score tracking.
+                    A Python game where the user plays against
+                    the computer. It uses random choices,
+                    conditions and score tracking.
                 </p>
 
-                <div class="tags">
-
-                    <span class="tag">Python</span>
-
-                    <span class="tag">Game Logic</span>
-
-                    <span class="tag">Random</span>
-
-                </div>
+                <span class="tag">Python</span>
+                <span class="tag">Game Logic</span>
 
             </div>
 
 
-            <!-- PROJECT 2 -->
+            <div class="project">
 
-            <div class="project-card">
-
-                <div class="project-number">
-                    PROJECT 02
-                </div>
-
-                <h3>
-                    Calculator Application
-                </h3>
+                <h3>Calculator Application</h3>
 
                 <p>
-                    A simple calculator application created to perform
-                    basic arithmetic operations and practice programming
-                    fundamentals.
+                    A simple calculator made to perform basic
+                    arithmetic operations and practice programming
+                    concepts.
                 </p>
 
-                <div class="tags">
-
-                    <span class="tag">Python</span>
-
-                    <span class="tag">Logic</span>
-
-                    <span class="tag">Programming</span>
-
-                </div>
+                <span class="tag">Python</span>
+                <span class="tag">Programming</span>
 
             </div>
 
 
-            <!-- PROJECT 3 -->
+            <div class="project">
 
-            <div class="project-card">
-
-                <div class="project-number">
-                    PROJECT 03
-                </div>
-
-                <h3>
-                    Personal Portfolio Website
-                </h3>
+                <h3>Personal Portfolio Website</h3>
 
                 <p>
-                    A responsive personal portfolio website designed
-                    to showcase education, skills, projects and
-                    extracurricular activities.
+                    A personal website created to display my
+                    education, skills, projects and activities.
                 </p>
 
-                <div class="tags">
-
-                    <span class="tag">HTML</span>
-
-                    <span class="tag">CSS</span>
-
-                    <span class="tag">Web Development</span>
-
-                </div>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
 
             </div>
 
 
-            <!-- PROJECT 4 -->
+            <div class="project">
 
-            <div class="project-card">
-
-                <div class="project-number">
-                    PROJECT 04
-                </div>
-
-                <h3>
-                    Dice Game
-                </h3>
+                <h3>Dice Game</h3>
 
                 <p>
-                    A beginner-friendly Python game using random
-                    number generation, conditions and programming
-                    logic to create an interactive experience.
+                    A simple Python game using random number
+                    generation, conditions and programming logic.
                 </p>
 
-                <div class="tags">
-
-                    <span class="tag">Python</span>
-
-                    <span class="tag">Random</span>
-
-                    <span class="tag">Game</span>
-
-                </div>
+                <span class="tag">Python</span>
+                <span class="tag">Game</span>
 
             </div>
 
@@ -770,185 +508,128 @@
 
     </section>
 
-
-    <!-- EDUCATION -->
 
     <section class="section" id="education">
 
-        <div class="section-number">
-            04 — EDUCATION
+        <p class="section-title">EDUCATION</p>
+
+        <h2>Education</h2>
+
+        <div class="education">
+
+            <div class="year">2025 - 2029</div>
+
+            <h3>B.Tech in Computer Engineering</h3>
+
+            <p>
+                Lokmanya Tilak College of Engineering
+            </p>
+
         </div>
 
-        <h2>
-            My academic journey.
-        </h2>
 
-        <div class="education-list">
+        <div class="education">
 
+            <div class="year">2024 - 2025</div>
 
-            <div class="education-card">
+            <h3>Higher Secondary Certificate (HSC)</h3>
 
-                <div class="year">
-                    2025 — 2029
-                </div>
+            <p>
+                Dr. Chandrabhanu Sonvane Jr. College,
+                Shivajinagar, Pune
+            </p>
 
-                <div>
-
-                    <h3>
-                        B.Tech in Computer Engineering
-                    </h3>
-
-                    <p>
-                        Lokmanya Tilak College of Engineering
-                    </p>
-
-                </div>
-
-            </div>
+        </div>
 
 
-            <div class="education-card">
+        <div class="education">
 
-                <div class="year">
-                    2022 — 2024
-                </div>
+            <div class="year">2023 - 2024</div>
 
-                <div>
+            <h3>Secondary School Certificate (SSC)</h3>
 
-                    <h3>
-                        Higher Secondary Certificate (HSC)
-                    </h3>
-
-                    <p>
-                        Swami Vivekanand Vidyalaya &
-                        Kanishtha Mahavidyalaya, Kurla East, Mumbai
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="education-card">
-
-                <div class="year">
-                    2021 — 2022
-                </div>
-
-                <div>
-
-                    <h3>
-                        Secondary School
-                    </h3>
-
-                    <p>
-                        General Secondary Academy, Chembur, Mumbai
-                    </p>
-
-                </div>
-
-            </div>
-
+            <p>
+                Lok Kalyan Public School, Kalyan
+            </p>
 
         </div>
 
     </section>
 
-
-    <!-- EXTRA ACTIVITIES -->
 
     <section class="section">
 
-        <div class="section-number">
-            05 — ACTIVITIES
-        </div>
+        <p class="section-title">ACTIVITIES</p>
 
-        <h2>
-            Beyond academics.
-        </h2>
+        <h2>Beyond Academics</h2>
 
         <div class="activity-grid">
 
+            <div class="activity">
 
-            <div class="activity-card">
-
-                <div class="activity-icon">
-                    ⚡
-                </div>
-
-                <h3>
-                    Hackathon Participant
-                </h3>
+                <h3>Hackathon Participant</h3>
 
                 <p>
                     Participated in a technical hackathon and
-                    collaborated with a team to work on a
-                    project-based solution.
+                    worked with a team on a project-based solution.
                 </p>
 
             </div>
 
 
-            <div class="activity-card">
+            <div class="activity">
 
-                <div class="activity-icon">
-                    ✦
-                </div>
-
-                <h3>
-                    DLLE
-                </h3>
+                <h3>DLLE</h3>
 
                 <p>
-                    Participated in community activities,
-                    awareness campaigns and team-based initiatives.
+                    Participated in community activities and
+                    team-based initiatives.
                 </p>
 
             </div>
-
 
         </div>
 
     </section>
 
 
-    <!-- CONTACT -->
-
     <section class="section contact" id="contact">
 
-        <div class="section-number">
-            06 — CONTACT
-        </div>
+        <p class="section-title">CONTACT</p>
 
-        <h2>
-            Let's connect.
-        </h2>
+        <h2>Let's Connect</h2>
 
-        <p class="section-description">
-            Feel free to connect with me through email,
+        <p>
+            You can connect with me through email,
             LinkedIn or GitHub.
         </p>
 
-        <div class="contact-links">
+        <a href="mailto:prarthana101010@gmail.com">
+            Email
+        </a>
 
-            <a
-                class="contact-link"
-                href="mailto:prarthana101010@gmail.com">
+        <a href="tel:+917738082909">
+            Phone
+        </a>
 
-                📧 Gmail
+        <a
+            href="https://www.linkedin.com/in/prarthana-gupta/"
+            target="_blank">
+            LinkedIn
+        </a>
 
-            </a>
+        <a
+            href="https://github.com/"
+            target="_blank">
+            GitHub
+        </a>
+
+    </section>
 
 
-            <a
-                class="contact-link"
-                href="tel:+917738082909">
+    <footer>
+        © 2026 Prarthana Gupta
+    </footer>
 
-                📱 Phone
-
-            </a>
-
-
-            <a
-                class="contact-link"
-                href="https://www.linkedin.com/in/prarthan
+</body>
+</html>
