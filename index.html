@@ -4,10 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Prarthana G | Computer Engineering Student</title>
+<title>Prarthana Gupta | Computer Engineering Student</title>
+
+<meta name="description"
+content="Prarthana Gupta — Computer Engineering student, developer and technology enthusiast.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --bg:#06070a;
+    --bg2:#0b0d12;
+    --card:rgba(255,255,255,.055);
+    --border:rgba(255,255,255,.11);
+    --text:#f5f7fb;
+    --muted:#969ba8;
+    --blue:#6ea8ff;
+    --cyan:#55e6ff;
+    --purple:#9b7cff;
+}
 
 *{
     margin:0;
@@ -20,10 +38,40 @@ html{
 }
 
 body{
-    background:#f5f2eb;
-    color:#151515;
-    font-family:'Manrope',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Space Grotesk",sans-serif;
     overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:var(--blue);
+    opacity:.08;
+    filter:blur(130px);
+    top:-150px;
+    left:-150px;
+    pointer-events:none;
+    z-index:-1;
+}
+
+body:after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:var(--purple);
+    opacity:.07;
+    filter:blur(130px);
+    bottom:-180px;
+    right:-150px;
+    pointer-events:none;
+    z-index:-1;
 }
 
 a{
@@ -32,11 +80,12 @@ a{
 }
 
 ::selection{
-    background:#151515;
-    color:#f5f2eb;
+    background:var(--blue);
+    color:#050609;
 }
 
-/* NAV */
+
+/* ================= NAVBAR ================= */
 
 nav{
     position:fixed;
@@ -44,338 +93,493 @@ nav{
     left:50%;
     transform:translateX(-50%);
     width:min(1100px,92%);
-    z-index:1000;
+    z-index:999;
 }
 
-.navbar{
-    background:rgba(245,242,235,.88);
-    backdrop-filter:blur(15px);
-    border:1px solid #d8d4ca;
-    border-radius:50px;
-    padding:12px 18px;
+.nav{
+    height:62px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+
+    background:rgba(8,9,13,.72);
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    border-radius:18px;
 }
 
 .logo{
-    font-weight:800;
-    font-size:18px;
+    font-weight:700;
+    font-size:17px;
 }
 
-.logo span{
-    font-family:'DM Mono';
-    font-size:13px;
-    margin-left:5px;
-    color:#777;
+.logo b{
+    color:var(--cyan);
 }
 
-.navlinks{
+.nav ul{
+    list-style:none;
     display:flex;
     gap:25px;
-    list-style:none;
 }
 
-.navlinks a{
-    font-size:13px;
-    font-weight:600;
-    color:#555;
-    transition:.25s;
+.nav a{
+    font-family:"DM Mono";
+    font-size:11px;
+    color:#aeb2bc;
+    transition:.3s;
 }
 
-.navlinks a:hover{
-    color:#111;
+.nav a:hover{
+    color:white;
 }
 
-/* HERO */
+
+/* ================= HERO ================= */
 
 .hero{
     min-height:100vh;
-    padding:150px 7% 80px;
     display:flex;
     align-items:center;
     position:relative;
+    padding:130px 7% 80px;
 }
 
-.hero-grid{
-    width:100%;
-    max-width:1200px;
+.hero-container{
+    width:min(1150px,100%);
     margin:auto;
     display:grid;
-    grid-template-columns:1.5fr .8fr;
-    gap:70px;
+    grid-template-columns:1.35fr .65fr;
+    gap:80px;
     align-items:center;
 }
 
-.small-label{
-    font-family:'DM Mono';
-    font-size:13px;
-    color:#777;
-    margin-bottom:25px;
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.035);
+    padding:9px 14px;
+    border-radius:30px;
+    font-family:"DM Mono";
+    font-size:10px;
+    color:#b7bcc8;
+    margin-bottom:27px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    background:#62e58a;
+    border-radius:50%;
+    box-shadow:0 0 12px #62e58a;
 }
 
 .hero h1{
-    font-size:clamp(55px,9vw,125px);
-    line-height:.9;
-    letter-spacing:-6px;
-    font-weight:800;
+    font-size:clamp(55px,8vw,105px);
+    line-height:.94;
+    letter-spacing:-5px;
+    font-weight:700;
 }
 
-.hero h1 span{
-    display:block;
-    color:#777;
+.gradient{
+    background:linear-gradient(
+        100deg,
+        #ffffff 10%,
+        var(--cyan) 50%,
+        var(--purple) 90%
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero-subtitle{
+    margin-top:28px;
+    font-size:20px;
+    color:#c4c8d1;
 }
 
 .hero-description{
-    max-width:580px;
-    margin-top:35px;
-    font-size:17px;
+    max-width:650px;
+    margin-top:18px;
     line-height:1.8;
-    color:#555;
+    color:var(--muted);
+    font-size:15px;
 }
 
 .hero-buttons{
     display:flex;
     gap:12px;
     margin-top:32px;
+    flex-wrap:wrap;
 }
 
 .btn{
-    padding:14px 22px;
-    border:1px solid #1a1a1a;
-    border-radius:5px;
-    font-size:13px;
-    font-weight:700;
-    transition:.25s;
+    padding:13px 20px;
+    border-radius:10px;
+    font-size:12px;
+    font-weight:600;
+    border:1px solid var(--border);
+    transition:.3s;
 }
 
-.btn-dark{
-    background:#151515;
-    color:white;
+.primary{
+    background:white;
+    color:#07080b;
 }
 
-.btn-dark:hover{
+.primary:hover{
     transform:translateY(-3px);
+    box-shadow:0 10px 35px rgba(255,255,255,.12);
 }
 
-.btn-light:hover{
-    background:#151515;
+.secondary{
+    color:#d9dce3;
+}
+
+.secondary:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+}
+
+
+/* ================= HERO ORBIT ================= */
+
+.orbit-area{
+    height:420px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.orbit{
+    width:290px;
+    height:290px;
+    border:1px solid rgba(110,168,255,.25);
+    border-radius:50%;
+    position:relative;
+    animation:spin 20s linear infinite;
+}
+
+.orbit:before,
+.orbit:after{
+    content:"";
+    position:absolute;
+    inset:35px;
+    border:1px solid rgba(155,124,255,.22);
+    border-radius:50%;
+}
+
+.orbit:after{
+    inset:75px;
+    border-color:rgba(85,230,255,.2);
+}
+
+.orbit-dot{
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:var(--cyan);
+    border-radius:50%;
+    box-shadow:0 0 25px var(--cyan);
+    top:12px;
+    left:50%;
+}
+
+.center-card{
+    position:absolute;
+    width:145px;
+    height:145px;
+    border-radius:28px;
+    background:linear-gradient(
+        145deg,
+        rgba(110,168,255,.15),
+        rgba(155,124,255,.1)
+    );
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 20px 70px rgba(0,0,0,.4);
+}
+
+.initials{
+    font-size:42px;
+    font-weight:700;
+    background:linear-gradient(135deg,var(--cyan),var(--purple));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.center-card small{
+    font-family:"DM Mono";
+    color:#777d89;
+    font-size:9px;
+    margin-top:8px;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* ================= COMMON ================= */
+
+section{
+    width:min(1150px,100%);
+    margin:auto;
+    padding:110px 7%;
+}
+
+.section-label{
+    font-family:"DM Mono";
+    color:var(--cyan);
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-size:clamp(38px,5vw,62px);
+    letter-spacing:-3px;
+}
+
+.section-title span{
+    color:#707683;
+}
+
+.section-description{
+    color:var(--muted);
+    margin-top:15px;
+    max-width:600px;
+    line-height:1.7;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+    margin-top:55px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.glass{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+    backdrop-filter:blur(20px);
+}
+
+.about-main p{
+    color:#b1b5c0;
+    line-height:1.9;
+    margin-bottom:18px;
+    font-size:14px;
+}
+
+.about-main strong{
     color:white;
 }
 
-/* PROFILE CARD */
-
-.profile-card{
-    border:1px solid #cfcac0;
-    padding:25px;
-    background:#ebe7de;
-    transform:rotate(2deg);
-    box-shadow:15px 15px 0 #151515;
+.info-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
-.profile-top{
-    height:300px;
-    background:#d8d3c8;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.info{
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:rgba(255,255,255,.025);
+}
+
+.info small{
+    display:block;
+    color:#717784;
+    font-family:"DM Mono";
+    font-size:9px;
+    margin-bottom:8px;
+}
+
+.info b{
+    font-size:14px;
+}
+
+
+/* ================= SKILLS ================= */
+
+.skills-grid{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.skill{
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:17px;
+    background:rgba(255,255,255,.035);
+    transition:.35s;
     position:relative;
     overflow:hidden;
 }
 
-.profile-symbol{
-    font-size:120px;
-    font-weight:800;
-    color:#151515;
-}
-
-.profile-bottom{
-    padding-top:22px;
-    display:flex;
-    justify-content:space-between;
-    font-family:'DM Mono';
-    font-size:11px;
-    color:#666;
-}
-
-/* MARQUEE */
-
-.marquee{
-    border-top:1px solid #222;
-    border-bottom:1px solid #222;
-    padding:18px 0;
-    overflow:hidden;
-    white-space:nowrap;
-    background:#151515;
-    color:#f5f2eb;
-}
-
-.marquee-track{
-    display:inline-block;
-    animation:move 20s linear infinite;
-    font-family:'DM Mono';
-    font-size:13px;
-}
-
-.marquee span{
-    margin:0 30px;
-}
-
-@keyframes move{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
-}
-
-/* SECTIONS */
-
-section{
-    max-width:1200px;
-    margin:auto;
-    padding:120px 7%;
-}
-
-.section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    margin-bottom:55px;
-}
-
-.section-number{
-    font-family:'DM Mono';
-    font-size:12px;
-    color:#888;
-}
-
-.section-title{
-    font-size:clamp(40px,6vw,72px);
-    letter-spacing:-3px;
-    line-height:1;
-}
-
-.section-title span{
-    color:#888;
-}
-
-/* ABOUT */
-
-.about{
-    display:grid;
-    grid-template-columns:.8fr 1.5fr;
-    gap:80px;
-}
-
-.about-left{
-    font-family:'DM Mono';
-    color:#777;
-    font-size:13px;
-}
-
-.about-right p{
-    font-size:21px;
-    line-height:1.7;
-    margin-bottom:22px;
-}
-
-.about-right p:last-child{
-    color:#777;
-    font-size:15px;
-}
-
-/* SKILLS */
-
-.skills{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    border-top:1px solid #ccc;
-}
-
-.skill{
-    padding:28px 20px;
-    border-right:1px solid #ccc;
-    border-bottom:1px solid #ccc;
-    min-height:150px;
-    transition:.3s;
+.skill:before{
+    content:"";
+    position:absolute;
+    width:80px;
+    height:80px;
+    background:var(--cyan);
+    opacity:.05;
+    filter:blur(30px);
+    right:-20px;
+    top:-20px;
 }
 
 .skill:hover{
-    background:#151515;
-    color:#fff;
+    transform:translateY(-6px);
+    border-color:rgba(85,230,255,.4);
+    background:rgba(255,255,255,.06);
 }
 
-.skill-number{
-    font-family:'DM Mono';
-    color:#888;
+.skill-icon{
+    font-family:"DM Mono";
+    color:var(--cyan);
     font-size:11px;
 }
 
 .skill h3{
-    margin-top:30px;
-    font-size:20px;
+    margin-top:25px;
+    font-size:18px;
 }
 
 .skill p{
-    color:#888;
     margin-top:7px;
-    font-size:12px;
+    color:#777d89;
+    font-size:11px;
 }
 
-/* PROJECTS */
+
+/* ================= PROJECTS ================= */
 
 .projects{
+    margin-top:50px;
     display:grid;
-    gap:25px;
+    gap:18px;
 }
 
 .project{
-    border:1px solid #cfcac0;
-    padding:32px;
     display:grid;
-    grid-template-columns:90px 1fr 180px;
+    grid-template-columns:70px 1fr 130px;
     gap:25px;
     align-items:center;
-    transition:.3s;
+    padding:28px;
+    border:1px solid var(--border);
+    background:linear-gradient(
+        120deg,
+        rgba(255,255,255,.055),
+        rgba(255,255,255,.02)
+    );
+    border-radius:18px;
+    transition:.35s;
 }
 
 .project:hover{
-    background:#151515;
-    color:white;
-    transform:translateX(8px);
+    transform:translateX(7px);
+    border-color:rgba(110,168,255,.4);
 }
 
 .project-no{
-    font-family:'DM Mono';
-    color:#888;
+    font-family:"DM Mono";
+    color:#59606c;
     font-size:12px;
 }
 
 .project h3{
-    font-size:24px;
-    margin-bottom:10px;
+    font-size:21px;
 }
 
 .project p{
-    color:#777;
-    font-size:13px;
+    margin-top:8px;
+    color:#777d89;
+    font-size:12px;
     line-height:1.7;
 }
 
-.project:hover p{
-    color:#aaa;
+.project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:15px;
 }
 
-.project-tech{
-    font-family:'DM Mono';
-    font-size:10px;
-    line-height:2;
-    color:#777;
+.tag{
+    padding:5px 9px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    font-family:"DM Mono";
+    color:#969ba8;
+    font-size:8px;
 }
 
-/* JOURNEY */
+.project-side{
+    text-align:right;
+    font-family:"DM Mono";
+    font-size:9px;
+    color:#626875;
+}
+
+
+/* ================= HIGHLIGHT ================= */
+
+.highlight{
+    margin-top:60px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:40px;
+    background:
+        radial-gradient(circle at 90% 10%,rgba(110,168,255,.12),transparent 35%),
+        rgba(255,255,255,.035);
+}
+
+.highlight-label{
+    font-family:"DM Mono";
+    color:var(--cyan);
+    font-size:9px;
+}
+
+.highlight h3{
+    font-size:30px;
+    margin-top:15px;
+}
+
+.highlight p{
+    color:#888e9a;
+    max-width:700px;
+    margin-top:10px;
+    line-height:1.7;
+    font-size:13px;
+}
+
+
+/* ================= JOURNEY ================= */
 
 .timeline{
-    border-left:1px solid #aaa;
-    margin-left:10px;
+    margin-top:55px;
+    position:relative;
+    border-left:1px solid #292d35;
 }
 
 .timeline-item{
@@ -383,754 +587,615 @@ section{
     position:relative;
 }
 
-.timeline-item::before{
-    content:'';
-    position:absolute;
+.timeline-item:last-child{
+    padding-bottom:0;
+}
+
+.timeline-item:before{
+    content:"";
     width:9px;
     height:9px;
-    background:#151515;
     border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 15px var(--cyan);
+    position:absolute;
     left:-5px;
-    top:5px;
+    top:4px;
 }
 
 .timeline-year{
-    font-family:'DM Mono';
-    font-size:11px;
-    color:#888;
+    font-family:"DM Mono";
+    font-size:10px;
+    color:var(--cyan);
 }
 
 .timeline h3{
-    margin:8px 0;
-    font-size:23px;
+    margin-top:9px;
+    font-size:22px;
 }
 
 .timeline p{
-    color:#777;
-    font-size:14px;
+    color:#777d89;
+    margin-top:7px;
+    font-size:13px;
     max-width:650px;
+    line-height:1.7;
 }
 
-/* CONTACT */
 
-.contact{
-    min-height:70vh;
-    display:flex;
-    align-items:center;
+/* ================= CONTACT ================= */
+
+.contact-section{
+    padding-bottom:70px;
 }
 
 .contact-box{
-    width:100%;
-    background:#151515;
-    color:white;
-    padding:70px;
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:65px;
     position:relative;
     overflow:hidden;
-}
-
-.contact-box::after{
-    content:'LET’S BUILD';
-    position:absolute;
-    right:-50px;
-    bottom:-60px;
-    font-size:120px;
-    font-weight:800;
-    color:#222;
-    pointer-events:none;
+    background:
+        radial-gradient(circle at 80% 30%,rgba(155,124,255,.15),transparent 30%),
+        radial-gradient(circle at 20% 80%,rgba(85,230,255,.1),transparent 30%),
+        rgba(255,255,255,.035);
 }
 
 .contact-box h2{
-    font-size:clamp(45px,7vw,90px);
+    font-size:clamp(45px,7vw,85px);
+    line-height:.95;
     letter-spacing:-4px;
-    line-height:1;
-    position:relative;
-    z-index:2;
 }
 
 .contact-box h2 span{
-    color:#777;
+    color:#626875;
 }
 
 .contact-box p{
-    color:#aaa;
-    margin:25px 0;
-    max-width:550px;
+    color:#858b98;
+    max-width:560px;
+    margin-top:20px;
     line-height:1.7;
+    font-size:13px;
 }
 
 .contact-links{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
-    position:relative;
-    z-index:2;
+    margin-top:30px;
 }
 
-.contact-links a{
-    border:1px solid #555;
-    padding:12px 18px;
-    font-size:12px;
-    transition:.25s;
+.contact-link{
+    padding:11px 17px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    font-family:"DM Mono";
+    font-size:10px;
+    color:#b7bcc8;
+    transition:.3s;
 }
 
-.contact-links a:hover{
-    background:white;
-    color:#151515;
+.contact-link:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+    transform:translateY(-3px);
 }
 
-/* FOOTER */
+
+/* ================= FOOTER ================= */
 
 footer{
-    border-top:1px solid #ccc;
+    border-top:1px solid var(--border);
     padding:25px 7%;
     display:flex;
     justify-content:space-between;
-    color:#777;
-    font-family:'DM Mono';
-    font-size:10px;
+    color:#565c68;
+    font-family:"DM Mono";
+    font-size:9px;
 }
 
-/* REVEAL */
+
+/* ================= REVEAL ================= */
 
 .reveal{
     opacity:0;
-    transform:translateY(35px);
+    transform:translateY(30px);
     transition:1s ease;
 }
 
-.reveal.active{
+.reveal.show{
     opacity:1;
     transform:translateY(0);
 }
 
-/* MOBILE */
 
-@media(max-width:800px){
+/* ================= MOBILE ================= */
 
-    nav{
-        top:10px;
-    }
+@media(max-width:850px){
 
-    .navbar{
-        padding:11px 14px;
-    }
-
-    .logo span{
-        display:none;
-    }
-
-    .navlinks{
-        gap:13px;
-    }
-
-    .navlinks a{
-        font-size:10px;
+    .hero-container{
+        grid-template-columns:1fr;
+        gap:50px;
     }
 
     .hero{
-        padding:130px 7% 70px;
+        padding-top:130px;
     }
 
-    .hero-grid{
+    .orbit-area{
+        height:330px;
+    }
+
+    .orbit{
+        width:230px;
+        height:230px;
+    }
+
+    .center-card{
+        width:120px;
+        height:120px;
+    }
+
+    .initials{
+        font-size:34px;
+    }
+
+    .about-grid{
         grid-template-columns:1fr;
-        gap:60px;
     }
 
-    .hero h1{
-        font-size:62px;
-        letter-spacing:-4px;
-    }
-
-    .profile-card{
-        max-width:330px;
-        margin:auto;
-    }
-
-    .profile-top{
-        height:240px;
-    }
-
-    section{
-        padding:80px 7%;
-    }
-
-    .about{
-        grid-template-columns:1fr;
-        gap:25px;
-    }
-
-    .about-right p{
-        font-size:18px;
-    }
-
-    .skills{
+    .skills-grid{
         grid-template-columns:1fr 1fr;
     }
 
-    .skill{
-        min-height:130px;
-    }
-
     .project{
-        grid-template-columns:1fr;
-        gap:15px;
+        grid-template-columns:45px 1fr;
     }
 
-    .project-tech{
-        border-top:1px solid #ccc;
-        padding-top:15px;
+    .project-side{
+        display:none;
     }
 
     .contact-box{
         padding:45px 25px;
     }
+}
 
-    .contact-box::after{
-        font-size:70px;
+
+@media(max-width:550px){
+
+    nav{
+        width:94%;
+    }
+
+    .nav{
+        height:56px;
+    }
+
+    .nav ul{
+        gap:12px;
+    }
+
+    .nav a{
+        font-size:9px;
+    }
+
+    .logo{
+        font-size:14px;
+    }
+
+    .hero{
+        padding-left:6%;
+        padding-right:6%;
+    }
+
+    .hero h1{
+        font-size:58px;
+        letter-spacing:-4px;
+    }
+
+    .hero-subtitle{
+        font-size:17px;
+    }
+
+    section{
+        padding:80px 6%;
+    }
+
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+
+    .info-card{
+        grid-template-columns:1fr;
+    }
+
+    .project{
+        padding:22px;
+    }
+
+    .project h3{
+        font-size:18px;
+    }
+
+    .contact-box h2{
+        font-size:55px;
     }
 
     footer{
         flex-direction:column;
-        gap:10px;
+        gap:8px;
     }
 }
 
-@media(max-width:450px){
-
-    .navlinks{
-        gap:9px;
-    }
-
-    .navlinks li:nth-child(3){
-        display:none;
-    }
-
-    .hero h1{
-        font-size:53px;
-    }
-
-    .skills{
-        grid-template-columns:1fr;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .btn{
-        text-align:center;
-    }
-}
 </style>
 </head>
 
+
 <body>
+
 
 <!-- NAVIGATION -->
 
 <nav>
-    <div class="navbar">
 
-        <div class="logo">
-            PG<span>PORTFOLIO</span>
-        </div>
+<div class="nav">
 
-        <ul class="navlinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
+    <div class="logo">
+        PG<span style="color:#777">.</span><b>DEV</b>
     </div>
+
+    <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#projects">WORK</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+    </ul>
+
+</div>
+
 </nav>
+
 
 
 <!-- HERO -->
 
 <header class="hero" id="home">
 
-    <div class="hero-grid">
+<div class="hero-container">
 
-        <div class="reveal">
+<div class="reveal">
 
-            <div class="small-label">
-                COMPUTER ENGINEERING · STUDENT · INDIA
-            </div>
-
-            <h1>
-                PRARTHANA
-                <span>G.</span>
-            </h1>
-
-            <p class="hero-description">
-                Computer Engineering student exploring software development,
-                problem solving and technology-driven solutions.
-                I like turning ideas into practical projects.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#projects" class="btn btn-dark">
-                    Explore my work →
-                </a>
-
-                <a href="#contact" class="btn btn-light">
-                    Let's connect
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="profile-card reveal">
-
-            <div class="profile-top">
-                <div class="profile-symbol">
-                    PG
-                </div>
-            </div>
-
-            <div class="profile-bottom">
-                <span>PRARTHANA G.</span>
-                <span>2026 / 01</span>
-            </div>
-
-        </div>
-
+    <div class="status">
+        <span class="status-dot"></span>
+        OPEN TO LEARNING & OPPORTUNITIES
     </div>
 
-</header>
+    <h1>
+        Hi, I'm<br>
+        <span class="gradient">Prarthana.</span>
+    </h1>
 
+    <div class="hero-subtitle">
+        Computer Engineering Student & Developer
+    </div>
 
-<!-- MARQUEE -->
+    <p class="hero-description">
+        I enjoy building digital experiences, solving programming
+        problems and exploring how technology can turn ideas into
+        useful real-world solutions.
+    </p>
 
-<div class="marquee">
+    <div class="hero-buttons">
 
-    <div class="marquee-track">
-        <span>COMPUTER ENGINEERING</span>•
-        <span>SOFTWARE DEVELOPMENT</span>•
-        <span>HACKATHONS</span>•
-        <span>PROBLEM SOLVING</span>•
-        <span>COMPUTER ENGINEERING</span>•
-        <span>SOFTWARE DEVELOPMENT</span>•
-        <span>HACKATHONS</span>•
-        <span>PROBLEM SOLVING</span>•
+        <a href="#projects" class="btn primary">
+            Explore My Work →
+        </a>
+
+        <a href="mailto:prarthana101010@gmail.com"
+           class="btn secondary">
+            Let's Talk
+        </a>
+
     </div>
 
 </div>
+
+
+<div class="orbit-area reveal">
+
+    <div class="orbit">
+
+        <div class="orbit-dot"></div>
+
+    </div>
+
+    <div class="center-card">
+
+        <div class="initials">
+            PG
+        </div>
+
+        <small>COMPUTER<br>ENGINEERING</small>
+
+    </div>
+
+</div>
+
+</div>
+
+</header>
+
 
 
 <!-- ABOUT -->
 
 <section id="about">
 
-    <div class="section-head reveal">
+<div class="section-label reveal">
+    01 / ABOUT ME
+</div>
 
-        <div>
-            <div class="section-number">01 / ABOUT</div>
-            <h2 class="section-title">
-                Who <span>I am.</span>
-            </h2>
-        </div>
+<h2 class="section-title reveal">
+    Curious mind.<br>
+    <span>Builder at heart.</span>
+</h2>
 
+<p class="section-description reveal">
+    A little bit about who I am and what I enjoy working on.
+</p>
+
+
+<div class="about-grid">
+
+<div class="glass about-main reveal">
+
+    <p>
+        I'm <strong>Prarthana Gupta</strong>, a Computer Engineering
+        student interested in software development and technology.
+    </p>
+
+    <p>
+        I like learning by actually building things — whether it's
+        a web project, a programming solution or a hackathon prototype.
+    </p>
+
+    <p>
+        Currently, I'm strengthening my foundations in programming,
+        data structures, web development and databases while exploring
+        new areas of technology.
+    </p>
+
+</div>
+
+
+<div class="info-card reveal">
+
+    <div class="info">
+        <small>NAME</small>
+        <b>Prarthana Gupta</b>
     </div>
 
-
-    <div class="about reveal">
-
-        <div class="about-left">
-            CURRENTLY LEARNING<br><br>
-            DSA<br>
-            WEB DEVELOPMENT<br>
-            DATABASES<br>
-            SOFTWARE DEVELOPMENT
-        </div>
-
-        <div class="about-right">
-
-            <p>
-                I'm a Computer Engineering student with an interest in
-                building things with technology and understanding how
-                software works behind the scenes.
-            </p>
-
-            <p>
-                From data structures and programming to hackathons and
-                web projects, I enjoy learning through hands-on work.
-                My focus is on improving one project at a time.
-            </p>
-
-        </div>
-
+    <div class="info">
+        <small>FIELD</small>
+        <b>Computer Engineering</b>
     </div>
+
+    <div class="info">
+        <small>INTEREST</small>
+        <b>Software Development</b>
+    </div>
+
+    <div class="info">
+        <small>BASED IN</small>
+        <b>India</b>
+    </div>
+
+</div>
+
+</div>
 
 </section>
+
 
 
 <!-- SKILLS -->
 
 <section id="skills">
 
-    <div class="section-head reveal">
+<div class="section-label reveal">
+    02 / TECH STACK
+</div>
 
-        <div>
-            <div class="section-number">02 / TOOLKIT</div>
+<h2 class="section-title reveal">
+    What I <span>work with.</span>
+</h2>
 
-            <h2 class="section-title">
-                Things I <span>use.</span>
-            </h2>
-        </div>
-
-    </div>
+<p class="section-description reveal">
+    Technologies and concepts I'm learning and using in my projects.
+</p>
 
 
-    <div class="skills reveal">
+<div class="skills-grid">
 
-        <div class="skill">
-            <div class="skill-number">01</div>
-            <h3>C / C++</h3>
-            <p>Programming · Logic · DSA</p>
-        </div>
 
-        <div class="skill">
-            <div class="skill-number">02</div>
-            <h3>Java</h3>
-            <p>Object Oriented Programming</p>
-        </div>
+<div class="skill reveal">
+    <div class="skill-icon">01 / CODE</div>
+    <h3>C / C++</h3>
+    <p>Programming · Logic · Algorithms</p>
+</div>
 
-        <div class="skill">
-            <div class="skill-number">03</div>
-            <h3>Python</h3>
-            <p>Programming · Problem Solving</p>
-        </div>
 
-        <div class="skill">
-            <div class="skill-number">04</div>
-            <h3>HTML / CSS</h3>
-            <p>Web Development · Responsive UI</p>
-        </div>
+<div class="skill reveal">
+    <div class="skill-icon">02 / CODE</div>
+    <h3>Python</h3>
+    <p>Programming · Problem Solving</p>
+</div>
 
-        <div class="skill">
-            <div class="skill-number">05</div>
-            <h3>JavaScript</h3>
-            <p>Interactive Web Experiences</p>
-        </div>
 
-        <div class="skill">
-            <div class="skill-number">06</div>
-            <h3>Data Structures</h3>
-            <p>Stacks · Queues · Trees · Linked Lists</p>
-        </div>
+<div class="skill reveal">
+    <div class="skill-icon">03 / CODE</div>
+    <h3>Java</h3>
+    <p>Object Oriented Programming</p>
+</div>
 
-        <div class="skill">
-            <div class="skill-number">07</div>
-            <h3>SQL / DBMS</h3>
-            <p>Databases · Queries</p>
-        </div>
 
-        <div class="skill">
-            <div class="skill-number">08</div>
-            <h3>Git / GitHub</h3>
-            <p>Version Control · Projects</p>
-        </div>
+<div class="skill reveal">
+    <div class="skill-icon">04 / WEB</div>
+    <h3>HTML / CSS</h3>
+    <p>Web Development · Responsive UI</p>
+</div>
 
-        <div class="skill">
-            <div class="skill-number">09</div>
-            <h3>Problem Solving</h3>
-            <p>Algorithms · Logical Thinking</p>
-        </div>
 
-    </div>
+<div class="skill reveal">
+    <div class="skill-icon">05 / WEB</div>
+    <h3>JavaScript</h3>
+    <p>Interactive Web Experiences</p>
+</div>
+
+
+<div class="skill reveal">
+    <div class="skill-icon">06 / DSA</div>
+    <h3>Data Structures</h3>
+    <p>Stacks · Queues · Trees · Linked Lists</p>
+</div>
+
+
+<div class="skill reveal">
+    <div class="skill-icon">07 / DATA</div>
+    <h3>SQL / DBMS</h3>
+    <p>Databases · Queries · Data Management</p>
+</div>
+
+
+<div class="skill reveal">
+    <div class="skill-icon">08 / TOOLS</div>
+    <h3>Git & GitHub</h3>
+    <p>Version Control · Collaboration</p>
+</div>
+
+
+<div class="skill reveal">
+    <div class="skill-icon">09 / CORE</div>
+    <h3>Problem Solving</h3>
+    <p>Logical Thinking · Algorithms</p>
+</div>
+
+
+</div>
 
 </section>
+
 
 
 <!-- PROJECTS -->
 
 <section id="projects">
 
-    <div class="section-head reveal">
+<div class="section-label reveal">
+    03 / SELECTED WORK
+</div>
 
-        <div>
-            <div class="section-number">03 / SELECTED WORK</div>
+<h2 class="section-title reveal">
+    Things I've <span>built.</span>
+</h2>
 
-            <h2 class="section-title">
-                Things I've <span>built.</span>
-            </h2>
-        </div>
+<p class="section-description reveal">
+    A selection of academic, hackathon and personal projects.
+</p>
 
+
+<div class="projects">
+
+
+<article class="project reveal">
+
+    <div class="project-no">
+        01
     </div>
 
-
-    <div class="projects">
-
-
-        <article class="project reveal">
-
-            <div class="project-no">
-                01
-            </div>
-
-            <div>
-                <h3>AI Fake Identity & Document Screening</h3>
-
-                <p>
-                    A security-focused project for detecting fake or
-                    tampered identity documents using document analysis,
-                    image verification and identity matching.
-                </p>
-            </div>
-
-            <div class="project-tech">
-                AI<br>
-                COMPUTER VISION<br>
-                PYTHON<br>
-                WEB
-            </div>
-
-        </article>
-
-
-        <article class="project reveal">
-
-            <div class="project-no">
-                02
-            </div>
-
-            <div>
-                <h3>Hackathon Projects</h3>
-
-                <p>
-                    Collaborative technology projects created during
-                    hackathons, focusing on practical problems and
-                    innovative digital solutions.
-                </p>
-            </div>
-
-            <div class="project-tech">
-                RESEARCH<br>
-                DEVELOPMENT<br>
-                TEAMWORK
-            </div>
-
-        </article>
-
-
-        <article class="project reveal">
-
-            <div class="project-no">
-                03
-            </div>
-
-            <div>
-                <h3>Game Development</h3>
-
-                <p>
-                    Interactive game concepts developed while exploring
-                    game development, gameplay logic and user experience.
-                </p>
-            </div>
-
-            <div class="project-tech">
-                HTML<br>
-                CSS<br>
-                JAVASCRIPT
-            </div>
-
-        </article>
-
-
-        <article class="project reveal">
-
-            <div class="project-no">
-                04
-            </div>
-
-            <div>
-                <h3>Data Structures Projects</h3>
-
-                <p>
-                    Academic implementations covering stacks, queues,
-                    linked lists, trees and searching techniques.
-                </p>
-            </div>
-
-            <div class="project-tech">
-                C<br>
-                DSA<br>
-                ALGORITHMS
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- JOURNEY -->
-
-<section>
-
-    <div class="section-head reveal">
-
-        <div>
-            <div class="section-number">04 / JOURNEY</div>
-
-            <h2 class="section-title">
-                My <span>path.</span>
-            </h2>
-        </div>
-
-    </div>
-
-
-    <div class="timeline reveal">
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
-                2026
-            </div>
-
-            <h3>Computer Engineering</h3>
-
-            <p>
-                Developing foundations in programming, data structures,
-                databases, computer systems and software development.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
-                2026
-            </div>
-
-            <h3>Hackathons & Technical Events</h3>
-
-            <p>
-                Working with teams on technology ideas, prototypes,
-                presentations and problem-solving challenges.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
-                NOW
-            </div>
-
-            <h3>Building & Learning</h3>
-
-            <p>
-                Currently improving development skills and building
-                projects that turn concepts into working applications.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-    <div class="contact-box reveal">
-
-        <div class="section-number">
-            05 / CONTACT
-        </div>
-
-        <h2>
-            Let's build<br>
-            <span>something.</span>
-        </h2>
+    <div>
+
+        <h3>
+            AI-Based Fake Identity & Document Screening System
+        </h3>
 
         <p>
-            Whether it's a project, hackathon idea or simply a conversation
-            about technology — feel free to connect.
+            A security-focused project designed to identify suspicious
+            identity documents through document analysis, image
+            verification and identity matching.
         </p>
 
-
-        <div class="contact-links">
-
-            <!-- CHANGE THESE LINKS -->
-
-            <a href="prarthana101010L@gmail.com">
-                EMAIL ↗
-            </a>
-
-            <a href="https://github.com/prarthana101010"
-               target="_blank">
-                GITHUB ↗
-            </a>
-
-            <a href="https://www.linkedin.com/in/prarthana-gupta-13224733"
-               target="_blank">
-                LINKEDIN ↗
-            </a>
-
+        <div class="project-tags">
+            <span class="tag">AI</span>
+            <span class="tag">COMPUTER VISION</span>
+            <span class="tag">PYTHON</span>
+            <span class="tag">WEB</span>
         </div>
 
     </div>
 
-</section>
+    <div class="project-side">
+        HACKATHON<br>
+        PROJECT
+    </div>
+
+</article>
 
 
-<!-- FOOTER -->
 
-<footer>
+<article class="project reveal">
 
-    <span>PRARTHANA G.</span>
+    <div class="project-no">
+        02
+    </div>
 
-    <span>
-        COMPUTER ENGINEERING · 2026
-    </span>
+    <div>
 
-</footer>
+        <h3>
+            Hackathon Projects
+        </h3>
 
+        <p>
+            Collaborative prototypes created around real-world
+            problems, focusing on research, ideation, development
+            and presentation.
+        </p>
 
-<script>
+        <div class="project-tags">
+            <span class="tag">RESEARCH</span>
+            <span class="tag">PROTOTYPING</span>
+            <span class="tag">TEAMWORK</span>
+        </div>
 
-const revealElements =
-document.querySelectorAll(".reveal");
+    </div>
 
-const observer =
-new IntersectionObserver(
-(entries) => {
+    <div class="project-side">
+        INNOVATION<br>
+        & IDEATION
+    </div>
 
-    entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("active");
-
-        }
-
-    });
-
-},
-{
-    threshold:0.12
-});
+</article>
 
 
-revealElements.forEach(element => {
-    observer.observe(element);
-});
 
-</script>
+<article class="project reveal">
 
-</body>
-</html>
+    <div class="project-no">
+        03
+    </div>
+
+    <div>
+
+        <h3>
+            Interactive Game Project
+        </h3>
+
+        <p>
+            An interactive game concept created while exploring
+            game logic, user interaction and front-end development.
+        </p>
+
+        <div class="project-tags">
